@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import Sidebar from "./Sidebar";
 import Chat from "./Chat";
+import Message from "./Message";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       rfce
       <Sidebar />
       <Chat />
+      <Message />
     </div>
   );
 }
