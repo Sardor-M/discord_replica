@@ -7,7 +7,27 @@ import { selectUser } from "./features/userSlice";
 import Login from "./Login";
 
 function App() {
-  const user = useSelector(selecUser);
+  const dispatch = useDispatch();
+  const user = useSelector(selectUser);
+
+  useEffect(() => {
+    auth.onAuthStateChanged((authUser) => {
+      if (authUser) {
+        // logged in
+        dispatch(
+          login({
+            uid: authUser.uid,
+            photo: authUser.ptotoURL,
+            email: authUser.email,
+            displayName: authUser.displayName,
+          })
+        );
+      } else {
+        // user logged out
+        dispatch(logout());
+      }
+    });
+  }, [dispatch]);
   return (
     <div className="app">
       {" "}
