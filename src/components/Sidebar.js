@@ -55,7 +55,7 @@ function Sidebar() {
           <AddIcon className="sidebar__addChannel" />
         </div>
         <div className="sidebar__channelsList">
-          <SidebarChannel />
+          <SidebarChannel key={id} id={id} channelName={channel.channelName} />
         </div>
       </div>
 
@@ -76,10 +76,10 @@ function Sidebar() {
       </div>
 
       <div className="sidebar__profile">
-        <Avatar />
+        <Avatar onClick={() => auth.signOut()} src={user.photo} />
         <div className="sidebar__profileInfo">
-          <h3>Steven </h3>
-          <p>#ID</p>
+          <h3>{user.displayName} </h3>
+          <p>#{user.uid.substring(0, 4)}</p>
         </div>
 
         <div className="sidebar__profileIcons">
