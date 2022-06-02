@@ -8,11 +8,13 @@ import Message from "./Message";
 import { useSelector } from "react-redux";
 import { selectChannelId, selectChannelName } from "../features/appSlice";
 import { selectUser } from "./features/userSlice";
+import { useState } from "react";
 
 function Chat() {
   const user = useSelector(selectUser);
   const channelId = useSelector(selectChannelId);
   const channelName = useSelector(selectChannelName);
+  const [input, setInput] = useState("");
 
   return (
     <div className="chat ">
@@ -20,8 +22,16 @@ function Chat() {
       <div className="chat_messages"></div>
       <div className="chat_input">
         <AddCircleIcon forntSize="large" />
-        <form input placeholder="Message #TESTCHANNEL"></form>
-        <button className="chat_inputButton" type="submit">
+        <form
+          disabled={!channelId}
+          input
+          placeholder="Message #TESTCHANNEL"
+        ></form>
+        <button
+          className="chat_inputButton"
+          disabled={!channelId}
+          type="submit"
+        >
           {" "}
           Send Message
         </button>
