@@ -1,5 +1,7 @@
 import React from "react";
 import { auth, provider } from "./Firebase";
+import { Button } from "@material-ui/core";
+import "./Login";
 
 function Login() {
   const signIn = () => {
@@ -13,8 +15,8 @@ function Login() {
           src="https://seeklogo.com/images/D/discord-black-logo-733DD6B9B0-seeklogo.com.png"
           alt="discord"
         ></img>
-        <Button onclick={signIn}> Sign in here</Button>
       </div>
+      <Button onclick={signIn}> Sign in here</Button>
     </div>
   );
 }
