@@ -11,6 +11,7 @@ import { selectUser } from "./features/userSlice";
 import { useState, useEffect } from "react";
 import db from "./Firebase";
 import firebase from "firebase";
+import ChatHeader from "./ChatHeader";
 
 function Chat() {
   const user = useSelector(selectUser);
@@ -44,8 +45,16 @@ function Chat() {
 
   return (
     <div className="chat ">
-      <Message />
-      <div className="chat_messages"></div>
+      <ChatHeader channelName={channelName} />
+      <div className="chat_messages">
+        {messages.map((message) => (
+          <Message
+            timestamp={message.timestamp}
+            message={message.message}
+            user={message.user}
+          />
+        ))}
+      </div>
       <div className="chat_input">
         <AddCircleIcon forntSize="large" />
         <form>
@@ -55,7 +64,6 @@ function Chat() {
             onChange={(e) => setInput(e.target.value)}
             placeholder={`Message #${channelName}`}
           />
-
           <button
             className="chat_inputButton"
             disabled={!channelId}
