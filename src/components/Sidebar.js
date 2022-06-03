@@ -12,6 +12,7 @@ import HeadsetIcon from "@material-ui/icons/Headset";
 import SettingsIcon from "@material-ui/icons/Settings";
 import { useSelector } from "react-redux";
 import { selectUser } from "./features/userSlice";
+import db, { auth } from "./firebase";
 
 function Sidebar() {
   const user = useSelector(selectUser);
@@ -28,6 +29,7 @@ function Sidebar() {
     );
   }, []);
   // will add firebase functions here
+
   const handleAddChannel = () => {
     const channelName = prompt("Enter a new channel name");
 
@@ -41,7 +43,7 @@ function Sidebar() {
   return (
     <div className="sidebar">
       <div className="sidebar__top">
-        <h3>Steven | server |</h3>
+        <h3>Steve's server |</h3>
         <ExpandMoreIcon />
       </div>
 
