@@ -1,5 +1,5 @@
 import React from "react";
-import { auth, provider } from "./Firebase";
+import { auth, provider } from "./firebase";
 import { Button } from "@material-ui/core";
 import "./Login";
 
