@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 import { selectChannelId, selectChannelName } from "../features/appSlice";
 import { selectUser } from "./features/userSlice";
 import { useState, useEffect } from "react";
-import db from "./Firebase";
+import db from "./firebase";
 import firebase from "firebase";
 import ChatHeader from "./ChatHeader";
 
